@@ -13,7 +13,11 @@ function Update () {
 	if(Physics.Raycast(ray, hit)){
 		if(hit.transform.name == "StartGame"){
 			Application.LoadLevel("Scene");
-		}
+		}else if(hit.transform.name == "PlayGames"){
+			Application.LoadLevel("PlaySign");
+	  }else{
+	  
 	  }
+	}
 	}
 }
