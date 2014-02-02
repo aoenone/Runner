@@ -36,6 +36,10 @@ public class SignInMenu : MonoBehaviour {
 				Social.localUser.Authenticate((bool success) => {
 					mWaitingForAuth = false;
 					mStatusText = success ? "Successfully authenticated" : "Authentication failed.";
+					Social.ReportProgress("Cfjewijawiu_QA", 100.0f, (bool success2) => {
+						// handle success or failure
+						Social.ShowAchievementsUI();
+					});
 					Application.LoadLevel("MainScene");
 				});
 			} else {

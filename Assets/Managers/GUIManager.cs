@@ -37,6 +37,7 @@ public class GUIManager : MonoBehaviour {
 		enabled = true;
 		Social.ReportScore(UserScore, "CgkIy7DGy_AfEAIQAQ",(bool success)=>{
 			Social.ShowLeaderboardUI();
+//			Social.ShowAchievementsUI();
 		});
 	}
 	
@@ -47,6 +48,11 @@ public class GUIManager : MonoBehaviour {
 	public static void SetDistance(float distance){
 		instance.distanceText.text = distance.ToString("f0");
 		instance.UserScore = (int) distance;
-
+		if(distance.Equals(20)){
+			Social.ReportProgress("CgkIy7DGy_AfEAIQAw", 100.0f, (bool success) => {
+				// handle success or failure
+				Social.ShowAchievementsUI();
+			});
+		}
 	}
 }
